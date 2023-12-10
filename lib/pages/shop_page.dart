@@ -36,32 +36,29 @@ class _ShopPageState extends State<ShopPage> {
               children: [
                 // search bar
                 Container(
-                  padding: const EdgeInsets.all(12),
-                  margin: const EdgeInsets.symmetric(horizontal: 25),
-                  decoration: BoxDecoration(
-                      color: Colors.grey[200],
-                      borderRadius: BorderRadius.circular(8)),
-                  child: const Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "Search",
-                        style: TextStyle(color: Colors.grey),
-                      ),
-                      Icon(
-                        Icons.search,
-                        color: Colors.grey,
-                      ),
-                    ],
-                  ),
-                ),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 12, vertical: 0),
+                    margin: const EdgeInsets.symmetric(horizontal: 25),
+                    decoration: BoxDecoration(
+                        color: Colors.grey[200],
+                        borderRadius: BorderRadius.circular(8)),
+                    child: const TextField(
+                      decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: "Search",
+                          suffixIcon: Icon(
+                            Icons.search,
+                            color: Colors.grey,
+                          )),
+                    )),
 
                 // message
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 15),
                   child: Text(
                     "Everyone flies... some fly longer than others",
-                    style: TextStyle(color: Colors.grey[600]),
+                    style:
+                        TextStyle(color: const Color.fromARGB(255, 49, 49, 49)),
                   ),
                 ),
 
@@ -88,7 +85,7 @@ class _ShopPageState extends State<ShopPage> {
 
                 Expanded(
                     child: ListView.builder(
-                  itemCount: 4,
+                  itemCount: value.getShoeList().length,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
                     Shoe shoe = value.getShoeList()[index];
